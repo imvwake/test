@@ -11,6 +11,8 @@ app = Flask(__name__)
 def execute():
   content_type = request.headers.get("Content-Type")
   request_id = generate_uuid()
+  if content_type =="application/json"):
+    return {"statusCode":200, "body":json.dumps({"message":"Accecpted", "request_id":request_id})}
   return {"statusCode":400, "body": json.dumps({"message":"Invalid Contrnt", "request_id":request_id})}
 
 if __name__ == "__main__":
